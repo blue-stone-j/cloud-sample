@@ -1,2 +1,3 @@
-# cloud-downsample
-Some algorithm for downsampling point cloud.
+# cloud downsample and filter
+Some algorithm to downsample or filter point cloud.
+
