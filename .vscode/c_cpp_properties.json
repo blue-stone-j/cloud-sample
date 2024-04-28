@@ -10,7 +10,6 @@
         "/usr/include/**",
         "/usr/local/include/**",
         "/usr/local/cuda-11.4/**",
-        "${workspaceFolder}/../../install/include/**",
         "${workspaceFolder}/include/**"
       ],
       "name": "ROS",
