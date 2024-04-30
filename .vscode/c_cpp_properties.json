@@ -6,7 +6,6 @@
         "limitSymbolsToIncludedHeaders": false
       },
       "includePath": [
-        "/opt/ros/noetic/include/**",
         "/usr/include/**",
         "/usr/local/include/**",
         "/usr/local/cuda-11.4/**",

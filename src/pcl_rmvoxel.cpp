@@ -1,9 +1,8 @@
-#include <pcl/point_types.h>
-#include <pcl/io/pcd_io.h>
 #include <pcl/filters/voxel_grid.h>
-#include <pcl/filters/extract_indices.h>
 #include <unordered_map>
-#include <vector>
+
+
+#include "sample_filter.h"
 
 // 定义一个结构体，用于Eigen::Vector3i的哈希函数
 struct Vector3iHash

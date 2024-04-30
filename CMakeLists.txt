@@ -15,8 +15,11 @@ include_directories(
   ${PCL_INCLUDE_DIRS}
 )
 
-add_executable(pcl_rmvoxel src/pcl_rmvoxel.cpp)
+set(common_lib "")
+list(APPEND common_lib ${PCL_LIBRARIES})
 
-target_link_libraries(pcl_rmvoxel
-  ${PCL_LIBRARIES}
-)
+add_executable(pcl_rmvoxel src/pcl_rmvoxel.cpp)
+target_link_libraries(pcl_rmvoxel ${common_lib})
+
+add_executable(pcl_sor src/statistical_outlier_removal.cpp)
+target_link_libraries(pcl_sor ${common_lib})
