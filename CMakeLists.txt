@@ -23,3 +23,6 @@ target_link_libraries(pcl_rmvoxel ${common_lib})
 
 add_executable(pcl_sor src/statistical_outlier_removal.cpp)
 target_link_libraries(pcl_sor ${common_lib})
+
+add_executable(ror src/radius_outlier_removal.cpp)
+target_link_libraries(ror ${common_lib})
