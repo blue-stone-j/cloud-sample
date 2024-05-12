@@ -22,7 +22,7 @@ int main(int argc, char **argv)
 {
   // 加载点云
   pcl::PointCloud<pcl::PointXYZ>::Ptr cloud(new pcl::PointCloud<pcl::PointXYZ>);
-  if (pcl::io::loadPCDFile<pcl::PointXYZ>("../asserts/cloud/fog.pcd", *cloud) == -1)
+  if (pcl::io::loadPCDFile<pcl::PointXYZ>("../assets/cloud/fog.pcd", *cloud) == -1)
   {
     PCL_ERROR("Couldn't read file your_point_cloud_file.pcd \n");
     return (-1);
