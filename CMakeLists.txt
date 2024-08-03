@@ -21,7 +21,7 @@ list(APPEND common_lib ${PCL_LIBRARIES})
 add_executable(pcl_rmvoxel test/pcl_rmvoxel_node.cpp)
 target_link_libraries(pcl_rmvoxel ${common_lib})
 
-add_executable(pcl_sor test/statistical_outlier_removal_node.cpp)
+add_executable(pcl_sor test/statistical_outlier_removal_node.cpp src/statistical_outlier_removal.cpp)
 target_link_libraries(pcl_sor ${common_lib})
 
 add_executable(ror test/radius_outlier_removal_node.cpp)

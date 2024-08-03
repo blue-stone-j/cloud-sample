@@ -7,4 +7,10 @@
 
 #include "interface.h"
 
+
+namespace SampleFilter
+{
+
+} // namespace SampleFilter
+
 #endif

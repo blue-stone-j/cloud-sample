@@ -1,10 +1,12 @@
-#ifndef INTERFACE_H
-#define INTERFACE_H
+#ifndef SAMPLE_INTERFACE_H
+#define SAMPLE_INTERFACE_H
 
 #include <pcl/point_cloud.h>
 #include <pcl/point_types.h>
 #include <pcl/io/pcd_io.h>
 
+namespace SampleFilter
+{
 class Interface
 {
  public:
@@ -33,5 +35,6 @@ class Interface
     return 0;
   }
 };
+} // namespace SampleFilter
 
 #endif

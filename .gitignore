@@ -1,3 +1,7 @@
-assets
-build
+/assets
+
+/build
+
+/install
+
 /result/*.pcd

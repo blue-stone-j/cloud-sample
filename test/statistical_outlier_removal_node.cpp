@@ -1,11 +1,11 @@
 
 #include <pcl/filters/statistical_outlier_removal.h>
 
-#include "statistical_outlier_removal.h"
+#include "sample_filter/statistical_outlier_removal.h"
 
 int main(int argc, char **argv)
 {
-  SOR sor;
+  SampleFilter::SOR sor;
   sor.setCloudPath("../assets/cloud/fog.pcd");
 
   // pcl

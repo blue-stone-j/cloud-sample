@@ -4,6 +4,9 @@
 
 #include "sample_filter.h"
 
+
+namespace SampleFilter
+{
 class ROR : public Interface
 {
  public:
@@ -32,5 +35,8 @@ class ROR : public Interface
   double r     = 0.3;
   int num_thre = 5;
 };
+
+} // namespace SampleFilter
+
 
 #endif

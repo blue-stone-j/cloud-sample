@@ -1,10 +1,10 @@
 #include <pcl/filters/radius_outlier_removal.h>
 
-#include "radius_outlier_removal.h"
+#include "sample_filter/radius_outlier_removal.h"
 
 int main(int argc, char **argv)
 {
-  ROR ror;
+  SampleFilter::ROR ror;
   ror.setCloudPath("../assets/cloud/fog.pcd");
 
   // pcl
