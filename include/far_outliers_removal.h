@@ -1,7 +1,7 @@
 #ifndef FAR_OUTLIERS_REMOVAL_H
 #define FAR_OUTLIERS_REMOVAL_H
 
-#include "sample_filter.h"
+#include "interface.h"
 
 namespace SampleFilter
 {

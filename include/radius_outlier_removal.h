@@ -2,7 +2,7 @@
 #define RADIUS_OUTLIER_REMOVAL_H
 
 
-#include "sample_filter.h"
+#include "interface.h"
 
 
 namespace SampleFilter

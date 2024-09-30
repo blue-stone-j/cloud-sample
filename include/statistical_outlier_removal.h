@@ -1,7 +1,7 @@
 #ifndef STATISTICAL_OUTLIER_REMOVAL_H
 #define STATISTICAL_OUTLIER_REMOVAL_H
 
-#include "sample_filter.h"
+#include "interface.h"
 #include <pcl/kdtree/kdtree_flann.h>
 
 namespace SampleFilter

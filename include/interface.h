@@ -1,9 +1,12 @@
 #ifndef SAMPLE_INTERFACE_H
 #define SAMPLE_INTERFACE_H
 
+#include <vector>
+
 #include <pcl/point_cloud.h>
 #include <pcl/point_types.h>
 #include <pcl/io/pcd_io.h>
+#include <pcl/filters/extract_indices.h>
 
 namespace SampleFilter
 {
