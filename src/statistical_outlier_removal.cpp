@@ -36,12 +36,12 @@ int SOR::sample_filter()
   }
   double variance = (dis_sqr - dis_mean * dis_mean / valid_distances) / (valid_distances - 1);
   double stddev   = sqrt(variance);
-  dis_mean /= valid_distances; // stdard deviation
-  double thre = dis_mean + mul * stddev;
+  dis_mean /= valid_distances; // standard deviation
+  double threshold = dis_mean + mul * stddev;
 
   for (size_t i = 0; i < cloud->size(); ++i)
   {
-    if (distances[i] < thre)
+    if (distances[i] < threshold)
     {
       cloud_filtered->push_back(cloud->points[i]);
     }

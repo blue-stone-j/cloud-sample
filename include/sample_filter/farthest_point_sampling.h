@@ -2,7 +2,6 @@
 #define FARTHEST_POINT_SAMPLE_H
 
 #include <cmath>
-#include <iostream>
 #include <vector>
 
 namespace SampleFilter
@@ -46,7 +45,7 @@ void farthest_point_sampling_cpu(int b, int n, int m, const float *dataset, floa
 
         float d  = (x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1) + (z2 - z1) * (z2 - z1);
         float d2 = std::min(d, temp[k]);
-        temp[k]  = d2; // distance betweeen kth point and set A
+        temp[k]  = d2; // distance between kth point and set A
         besti    = d2 > best ? k : besti;
         best     = d2 > best ? d2 : best;
       }

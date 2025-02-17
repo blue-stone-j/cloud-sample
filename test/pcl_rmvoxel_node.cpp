@@ -2,7 +2,7 @@
 #include <unordered_map>
 
 
-#include "sample_filter/sample_filter.h"
+#include "sample_filter/interface.h"
 
 // 定义一个结构体，用于Eigen::Vector3i的哈希函数
 struct Vector3iHash
