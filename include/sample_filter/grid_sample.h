@@ -12,7 +12,13 @@ struct GridSampleParams
 };
 
 class GridSample : public Interface
-{};
+{
+ public:
+  GridSampleParams params;
+  GridSample() {}
+  GridSample(GridSampleParams params);
+  int sample_filter();
+};
 
 } // namespace SampleFilter
 
