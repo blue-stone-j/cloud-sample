@@ -4,6 +4,9 @@
 
 /install
 
+/cmake/cloud_sampleConfig.cmake
+/include/global_definition.h
+
 /result/*.pcd
 
 .vscode
