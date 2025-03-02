@@ -15,8 +15,8 @@ class ROR : public Interface
   void setMinNeighborsInRadius(int num);
 
  private:
-  double r     = 0.3;
-  int num_thre = 5;
+  double r          = 0.3;
+  int num_threshold = 5;
 };
 
 } // namespace SampleFilter

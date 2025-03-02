@@ -1,11 +1,12 @@
 #ifndef GLOBAL_DEFINITION_H
 #define GLOBAL_DEFINITION_H
 
+#include <filesystem>
 #include <string>
 
-const std::string SYSTEM_VERSION="@SYSTEM_VERSION@";
-const std::string SOFTWARE_VERSION="@SYSTEM_VERSION@";
-const std::string RELEASE_DATE="@RELEASE_DATE@";
+const std::string SYSTEM_VERSION   = "@SYSTEM_VERSION@";
+const std::string SOFTWARE_VERSION = "@SYSTEM_VERSION@";
+const std::string RELEASE_DATE     = "@RELEASE_DATE@";
 
 #if defined(_WIN32) || defined(_WIN64)
 #include <windows.h>
@@ -52,4 +53,3 @@ static std::string getRootDir()
 const std::string WORK_SPACE_PATH = getRootDir();
 
 #endif
-

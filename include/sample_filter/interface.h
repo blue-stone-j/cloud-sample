@@ -1,7 +1,7 @@
 #ifndef SAMPLE_INTERFACE_H
 #define SAMPLE_INTERFACE_H
 
-#include <vector>
+// #include <vector>
 
 #include <pcl/point_cloud.h>
 #include <pcl/point_types.h>
