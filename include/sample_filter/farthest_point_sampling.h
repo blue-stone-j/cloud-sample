@@ -2,7 +2,8 @@
 #define FARTHEST_POINT_SAMPLE_H
 
 #include <cmath>
-#include <vector>
+#include <pcl/point_types.h>
+#include <pcl/point_cloud.h>
 
 namespace SampleFilter
 {
@@ -17,16 +18,9 @@ idxs: (b, m)
 */
 void farthest_point_sampling_cpu(int b, int n, int m, const float *dataset, float *temp, int *idxs);
 
-typedef struct point
-{
-  int x;
-  int y;
-  int z;
-} Point;
+float GetDistance(pcl::PointXYZ &p1, pcl::PointXYZ &p2);
 
-float GetDistance(Point &p1, Point &p2);
-
-std::vector<Point> GetFPS(std::vector<Point> &input, const int num);
+pcl::PointCloud<pcl::PointXYZ> GetFPS(pcl::PointCloud<pcl::PointXYZ> &input, const int num);
 } // namespace SampleFilter
 
 #endif

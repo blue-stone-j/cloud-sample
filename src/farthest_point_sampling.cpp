@@ -2,54 +2,50 @@
 
 namespace SampleFilter
 {
-void farthest_point_sampling_cpu(int b, int n, int m, const float *dataset, float *temp, int *idxs)
+void farthest_point_sampling_cpu(int b, int n, int m,
+                                 const pcl::PointCloud<pcl::PointXYZ> &dataset,
+                                 std::vector<float> &temp, std::vector<int> &idxs)
 {
-  const float *const dataset_start = dataset;
-  float *const temp_start          = temp;
-  int *const idxs_start            = idxs;
-  // traverse batches
   for (int i = 0; i < b; ++i)
   {
-    dataset = dataset_start + i * n * 3;
-    temp    = temp_start + i * n;
-    idxs    = idxs_start + i * m;
-    int old = 0;
-    idxs[0] = old;
-    //! it seems that here is a bug
-    for (int j = 1; j < m; ++j) // m is num of points that we want
+    int index   = 0;
+    idxs[i * m] = index;
+    for (int j = 1; j < m; ++j) // Select m points
     {
       int best_i = 0;
-      float best = -1;
-      float x1   = dataset[old * 3 + 0]; // point in A
-      float y1   = dataset[old * 3 + 1];
-      float z1   = dataset[old * 3 + 2];
+      float best = -1.0f;
+
+      const pcl::PointXYZ &p1 = dataset[i * n + index];
+
       for (int k = 0; k < n; ++k)
       {
-        float x2, y2, z2;
-        x2 = dataset[k * 3 + 0]; // point in B
-        y2 = dataset[k * 3 + 1];
-        z2 = dataset[k * 3 + 2];
+        const pcl::PointXYZ &p2 = dataset[i * n + k];
+        float d                 = (p2.x - p1.x) * (p2.x - p1.x) + (p2.y - p1.y) * (p2.y - p1.y) + (p2.z - p1.z) * (p2.z - p1.z);
 
-        float d  = (x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1) + (z2 - z1) * (z2 - z1);
-        float d2 = std::min(d, temp[k]);
-        temp[k]  = d2; // distance between kth point and set A
-        best_i   = d2 > best ? k : best_i;
-        best     = d2 > best ? d2 : best;
+        float d2        = std::min(d, temp[i * n + k]);
+        temp[i * n + k] = d2;
+
+        if (d2 > best)
+        {
+          best   = d2;
+          best_i = k;
+        }
       }
-      old     = best_i;
-      idxs[j] = old;
+
+      index           = best_i;
+      idxs[i * m + j] = index;
     }
   }
 }
 
-float GetDistance(Point &p1, Point &p2)
+float GetDistance(pcl::PointXYZ &p1, pcl::PointXYZ &p2)
 {
   return std::sqrt(pow(p1.x - p2.x, 2) + pow(p1.y - p2.y, 2) + pow(p1.z - p2.z, 2));
 }
 
-std::vector<Point> GetFPS(std::vector<Point> &input, const int num)
+pcl::PointCloud<pcl::PointXYZ> GetFPS(pcl::PointCloud<pcl::PointXYZ> &input, const int num)
 {
-  std::vector<Point> output;
+  pcl::PointCloud<pcl::PointXYZ> output;
   output.emplace_back(input[0]);
   auto tmp = input;
   tmp.erase(tmp.begin());
