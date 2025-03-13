@@ -15,6 +15,8 @@ if(NOT DEFINED CLOUD_SAMPLE_VERSION)
   set(CMAKE_INSTALL_PREFIX ${CMAKE_CURRENT_SOURCE_DIR}/install/${PROJECT_NAME}-${CLOUD_SAMPLE_VERSION})
 endif()
 
+enable_testing()
+
 include(cmake/global_definition.cmake)
 
 find_package(PCL REQUIRED)

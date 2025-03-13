@@ -1,9 +1,10 @@
-
+#include <gtest/gtest.h>
 #include <pcl/filters/statistical_outlier_removal.h>
 
 #include "sample_filter/statistical_outlier_removal.h"
 
-int main(int argc, char **argv)
+
+TEST(statistical_outlier_removal_test, Cloud1)
 {
   SampleFilter::SOR sor;
   sor.setCloudPath("../assets/cloud/fog.pcd");
@@ -22,6 +23,10 @@ int main(int argc, char **argv)
   sor.sample_filter();
   sor.saveCloud("../result/filtered_point_cloud1.pcd");
   std::cout << "nne: " << sor.cloud->size() << ", " << sor.cloud_filtered->size() << std::endl;
+}
 
-  return 0;
+int main(int argc, char **argv)
+{
+  ::testing::InitGoogleTest(&argc, argv);
+  return RUN_ALL_TESTS();
 }

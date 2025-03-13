@@ -16,7 +16,9 @@ dataset: (b, n, 3)
 temp: (b, n)
 idxs: (b, m)
 */
-void farthest_point_sampling_cpu(int b, int n, int m, const float *dataset, float *temp, int *idxs);
+void farthest_point_sampling_cpu(int b, int n, int m,
+                                 const pcl::PointCloud<pcl::PointXYZ> &dataset,
+                                 std::vector<float> &temp, std::vector<int> &idxs);
 
 float GetDistance(pcl::PointXYZ &p1, pcl::PointXYZ &p2);
 

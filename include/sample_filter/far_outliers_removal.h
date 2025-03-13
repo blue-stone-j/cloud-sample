@@ -12,7 +12,15 @@ struct FarOutliersRemovalParams
 };
 
 class FarOutliersRemoval : public Interface
-{};
+{
+ public:
+  FarOutliersRemoval();
+  FarOutliersRemoval(FarOutliersRemovalParams params);
+  int sample_filter();
+
+ private:
+  FarOutliersRemovalParams params_;
+};
 } // namespace SampleFilter
 
 #endif

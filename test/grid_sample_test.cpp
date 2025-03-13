@@ -1,8 +1,14 @@
+#include <gtest/gtest.h>
+
 #include <pcl/filters/voxel_grid.h>
 #include <unordered_map>
 
 
 #include "sample_filter/grid_sample.h"
+
+TEST(grid_sample_test, Cloud)
+{
+}
 
 // 定义一个结构体，用于Eigen::Vector3i的哈希函数
 struct Vector3iHash
@@ -20,6 +26,8 @@ struct Vector3iHash
 
 int main(int argc, char **argv)
 {
+  ::testing::InitGoogleTest(&argc, argv);
+
   // 加载点云
   pcl::PointCloud<pcl::PointXYZ>::Ptr cloud(new pcl::PointCloud<pcl::PointXYZ>);
   if (pcl::io::loadPCDFile<pcl::PointXYZ>("../assets/cloud/fog.pcd", *cloud) == -1)
@@ -68,5 +76,6 @@ int main(int argc, char **argv)
 
   SampleFilter::GridSample grid;
 
-  return 0;
+
+  return RUN_ALL_TESTS();
 }

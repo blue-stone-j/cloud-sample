@@ -1,8 +1,10 @@
+#include <gtest/gtest.h>
+
 #include <pcl/filters/radius_outlier_removal.h>
 
 #include "sample_filter/radius_outlier_removal.h"
 
-int main(int argc, char **argv)
+TEST(radius_outlier_removal_test, Cloud)
 {
   SampleFilter::ROR ror;
   ror.setCloudPath("../assets/cloud/fog.pcd");
@@ -21,6 +23,13 @@ int main(int argc, char **argv)
   ror.sample_filter();
   ror.saveCloud("../result/filtered_point_cloud1.pcd");
   std::cout << "nne: " << ror.cloud->size() << ", " << ror.cloud_filtered->size() << std::endl;
+}
 
-  return 0;
+int main(int argc, char **argv)
+{
+  ::testing::InitGoogleTest(&argc, argv);
+
+
+
+  return RUN_ALL_TESTS();
 }
